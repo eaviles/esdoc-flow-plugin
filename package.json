@@ -1,0 +1,24 @@
+{
+  "name": "esdoc-flow-plugin",
+  "version": "1.0.0",
+  "description": "A Flow plugin for ESDoc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eaviles/esdoc-flow-plugin.git"
+  },
+  "keywords": [
+    "esdoc",
+    "flow",
+    "flowtype"
+  ],
+  "author": "Edgardo Avilés <eaviles@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eaviles/esdoc-flow-plugin/issues"
+  },
+  "homepage": "https://github.com/eaviles/esdoc-flow-plugin#readme"
+}
