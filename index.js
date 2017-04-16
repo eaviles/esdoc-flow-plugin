@@ -1,14 +1,18 @@
-const babel = require('babel-core');
 const fs = require('fs');
 const path = require('path');
+const babel = require('babel-core');
+
+const DEFAULTS = [
+  'transform-flow-strip-types',
+  'syntax-jsx'
+];
 
 /**
  * Remove duplicates from array
  * @param  {array} items Input array
  * @return {array} Output array with unique values
  */
-const arrayUnique = (items) =>
-    items.filter((item, pos, self) => self.indexOf(item) === pos);
+const arrayUnique = (arr) => Array.from(new Set(arr));
 
 /**
  * Construct Babel plugins config object.
@@ -18,23 +22,16 @@ const arrayUnique = (items) =>
  * @return {Object}
  */
 const buildBabelrcConfig = () => {
-  const defaultConfig = ['transform-flow-strip-types', 'syntax-jsx'];
-  const babelrcPath = path.normalize(path.join(__dirname, '..', '..', '.babelrc'));
+  const babelrcPath = path.resolve(__dirname, '..', '..', '.babelrc');
+  const babelrc = JSON.parse(fs.readFileSync(babelrcPath, 'utf8'));
 
-  if (! fs.existsSync(babelrcPath)) {
-    return { plugins: defaultConfig };
-  }
+  const plugins = Array.isArray(babelrc.plugins)
+    ? babelrc.plugins.concat(DEFAULTS)
+    : DEFAULTS;
 
-  const babelrc = JSON.parse(fs.readFileSync(babelrcPath));
-
-  if (! Array.isArray(babelrc.plugins)) {
-    return { plugins: defaultConfig };
-  }
-
-  const plugins = arrayUnique(babelrc.plugins.concat(defaultConfig));
-
-  return { plugins };
+  return { plugins: arrayUnique(plugins) };
 };
+
 
 exports.onHandleCode = (event) => {
   const babelOpts = buildBabelrcConfig();
