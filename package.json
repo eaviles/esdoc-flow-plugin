@@ -33,6 +33,8 @@
   "dependencies": {
     "babel-core": "6.9.1",
     "babel-plugin-syntax-jsx": "6.8.0",
-    "babel-plugin-transform-flow-strip-types": "6.8.0"
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0"
   }
 }
