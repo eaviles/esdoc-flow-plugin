@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/eaviles/esdoc-flow-plugin#readme",
   "devDependencies": {
-    "eslint": "2.13.0",
+    "eslint": "2.13.1",
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-import": "1.8.1"
   },
@@ -31,8 +31,8 @@
     "node": ">=4.4.4"
   },
   "dependencies": {
-    "babel-core": "6.10.4",
-    "babel-plugin-syntax-jsx": "6.8.0",
-    "babel-plugin-transform-flow-strip-types": "6.8.0"
+    "babel-core": "6.26.3",
+    "babel-plugin-syntax-jsx": "6.18.0",
+    "babel-plugin-transform-flow-strip-types": "6.22.0"
   }
 }
