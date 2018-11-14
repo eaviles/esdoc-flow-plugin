@@ -1,45 +1,19 @@
-const fs = require('fs');
-const path = require('path');
+'use strict';
+
 const babel = require('babel-core');
+const findBabelConfig = require('find-babel-config');
 
-const DEFAULTS = [
-  'transform-flow-strip-types',
-  'syntax-jsx'
-];
+const DEFAULT_PLUGINS = ['transform-flow-strip-types'];
 
-/**
- * Remove duplicates from array
- * @param  {array} items Input array
- * @return {array} Output array with unique values
- */
-const arrayUnique = (arr) => Array.from(new Set(arr));
-
-/**
- * Construct Babel plugins config object.
- * Honours user's global Babel plugins config. and adds
- * required Flowtype plugin if not already available.
- *
- * @return {Object}
- */
-const buildBabelrcConfig = () => {
-  const babelrcPath = path.resolve(__dirname, '..', '..', '.babelrc');
-  const babelrc = JSON.parse(fs.readFileSync(babelrcPath, 'utf8'));
-
-  const plugins = Array.isArray(babelrc.plugins)
-    ? babelrc.plugins.concat(DEFAULTS)
-    : DEFAULTS;
-
-  return { plugins: arrayUnique(plugins) };
-};
-
-
-exports.onHandleCode = (event) => {
-  const babelOpts = buildBabelrcConfig();
-
+exports.onHandleCode = event => {
   try {
-    const result = babel.transform(event.data.code, babelOpts);
+    const { config } = findBabelConfig.sync('..');
+    const plugins = Array.isArray(config.plugins)
+      ? [...new Set(config.plugins.concat(DEFAULT_PLUGINS))]
+      : DEFAULT_PLUGINS;
+    const result = babel.transform(event.data.code, { plugins });
     event.data.code = result.code;
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
   }
 };

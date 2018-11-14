@@ -1,11 +1,14 @@
 {
   "name": "esdoc-flow-plugin",
   "version": "1.0.0",
-  "description": "A Flow plugin for ESDoc.",
+  "description": "A Flow plugin for ESDoc",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/eslint/bin/eslint.js .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --ext .js,.json .",
+    "test": "exit 0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   },
   "repository": {
     "type": "git",
@@ -22,17 +25,14 @@
     "url": "https://github.com/eaviles/esdoc-flow-plugin/issues"
   },
   "homepage": "https://github.com/eaviles/esdoc-flow-plugin#readme",
-  "devDependencies": {
-    "eslint": "5.9.0",
-    "eslint-config-airbnb-base": "13.1.0",
-    "eslint-plugin-import": "1.16.0"
-  },
-  "engines": {
-    "node": ">=4.4.4"
-  },
   "dependencies": {
-    "babel-core": "6.26.3",
-    "babel-plugin-syntax-jsx": "6.18.0",
-    "babel-plugin-transform-flow-strip-types": "6.22.0"
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "find-babel-config": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-lifion": "^1.0.2",
+    "prettier": "^1.15.2"
   }
 }
