@@ -24,7 +24,7 @@
   "homepage": "https://github.com/eaviles/esdoc-flow-plugin#readme",
   "devDependencies": {
     "eslint": "5.9.0",
-    "eslint-config-airbnb-base": "3.0.1",
+    "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "1.8.1"
   },
   "engines": {
