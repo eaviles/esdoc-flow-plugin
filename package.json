@@ -31,8 +31,8 @@
     "find-babel-config": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.9.0",
-    "eslint-config-lifion": "^1.0.2",
-    "prettier": "^1.15.2"
+    "eslint": "5.9.0",
+    "eslint-config-lifion": "1.0.2",
+    "prettier": "1.15.2"
   }
 }
