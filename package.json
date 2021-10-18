@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "eslint": "^5.10.0",
-    "eslint-config-lifion": "^1.0.3",
+    "eslint-config-lifion": "^2.2.1",
     "prettier": "^1.16.1"
   }
 }
