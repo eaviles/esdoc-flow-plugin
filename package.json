@@ -8,7 +8,7 @@
     "test": "exit 0"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=20.18.0"
   },
   "repository": {
     "type": "git",
